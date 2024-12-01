@@ -4,14 +4,47 @@
 \usepackage{amssymb}
 \usepackage{geometry}
 \usepackage{hyperref}
+\usepackage{graphicx}
 
 \geometry{a4paper, margin=1in}
 
-\title{Abgabe 1 für Computergestützte Methoden}
-\author{Gruppe (18), (Safwan, Caner)}
-\date{(01.12.2024)}
-
 \begin{document}
+
+% Deckblatt
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+   
+    \Huge
+    Abgabe 1 für Computergestützte Methoden
+   
+    \vspace{1.5cm}
+   
+    \Large
+    GitHub-Repository: \href{https://github.com/212121221/Abgabe.git}{https://github.com/212121221/Abgabe.git}
+   
+    \vfill
+   
+    \Large
+    Safwan Malik \\
+    Matrikelnummer: 4345627
+   
+    \vspace{0.5cm}
+   
+    \Large
+    Caner Cifti \\
+    Matrikelnummer: 4325684
+   
+    \vspace{1cm}
+   
+    \large
+    \today
+\end{titlepage}
+
+% Inhalt des Dokuments
+\title{Abgabe 1 für Computergestützte Methoden}
+\author{Gruppe (18), Safwan Malik: 4345627, Caner Cifti: 4325684}
+\date{01.12.2024}
 
 \maketitle
 
@@ -45,15 +78,8 @@ Um die Summe der ZV in eine Standardnormalverteilung zu transformieren, subtrahi
 
 Der ZGS wird in vielen Bereichen der Statistik und der Wahrscheinlichkeitstheorie angewendet. Typische Beispiele sind:
 \begin{itemize}
-    \item (Ein typischer Anwendungsfall für den Zentrale Grenzwertsatz (ZGS) in der Statistik ist die \textbf{Schätzung des Mittelwerts einer Population}.
-
-\textbf{Beispiel:}\\
-Angenommen, man möchte den durchschnittlichen Einkommen von Arbeitnehmern in einem Land schätzen. Statt eine vollständige Volkszählung durchzuführen, wird eine zufällige Stichprobe von Arbeitnehmern gezogen, und der Mittelwert dieser Stichprobe wird verwendet, um den Mittelwert der gesamten Population zu schätzen.)
-    \item (Ein weiterer Anwendungsfall für den Zentrale Grenzwertsatz (ZGS) ist die \textbf{Fehleranalyse bei Messungen}.
-
-\textbf{Beispiel:}\\
-Angenommen, bei einem Experiment zur Messung der Länge eines Objekts werden mehrere unabhängige Messungen durchgeführt. Jede Messung hat aufgrund von Messfehlern eine zufällige Abweichung vom wahren Wert. Der ZGS besagt, dass die Verteilung der durchschnittlichen Messwerte für eine ausreichend große Anzahl von Messungen normalverteilt ist, auch wenn
-)
+    \item Ein typischer Anwendungsfall für den Zentrale Grenzwertsatz (ZGS) in der Statistik ist die \textbf{Schätzung des Mittelwerts einer Population}.
+    \item Ein weiterer Anwendungsfall für den Zentrale Grenzwertsatz (ZGS) ist die \textbf{Fehleranalyse bei Messungen}.
 \end{itemize}
 
 \section{Bearbeitung zur Aufgabe 1}
@@ -62,7 +88,7 @@ Angenommen, bei einem Experiment zur Messung der Länge eines Objekts werden meh
 
 Da unsere Gruppe mit SQL OnLine gearbeitet hat, mussten wir um die höchste mittlere Temperatur zu ermitteln, die Datei bikeshare\_data\_2022 erst einmal importiert.\\
 
-Unser Code lautet wie folgt:\\
+Unser Code lautet wie folgt:
 
 \begin{verbatim}
 SELECT *
@@ -77,18 +103,15 @@ WHERE "group" = 18
   );
 \end{verbatim}
 
-Der Code liefert die Zeile mit der höchsten mittleren Temperatur. In unserem Fall war es an der "9 Ave & W 18 St" am 29.07.2023 mit einer Durchschnittstemperatur von 83 Grad Celsius.
+Der Code liefert die Zeile mit der höchsten mittleren Temperatur. In unserem Fall war es an der "9 Ave \& W 18 St" am 29.07.2023 mit einer Durchschnittstemperatur von 83 Grad Celsius.
 
-\subsection{Datenbank-Schema entwerfen (1. und 2. Normalform beachten) }
-\textbf{1.Schritt(1.Normalform)}
-
+\subsection{Datenbank-Schema entwerfen (1. und 2. Normalform beachten)}
 
 Die gegebene Tabelle scheint bereits die Anforderungen der 1NF zu erfüllen (alle Zellen enthalten atomare Werte, und es gibt keine wiederholten Gruppen). Wir müssen also keine Änderungen vornehmen, wenn die Tabelle bereits diesen Zustand erreicht hat.
 
-Im nächsten Schritt wird also nun die 2. Normalform umgesetzt. Wir beginnnen mit der Erzeugung der Tabellen:\\
 
 
-\textbf{2. Schritt Tabellen erzeugen:}\\
+\textbf{2. Schritt Tabellen erzeugen:}
 
 Dem folgenden Code können Sie entnehmen, dass zwei Tabellen erzeugt werden. Der Primärschlüssel ist "ddate":
 
@@ -119,7 +142,7 @@ CREATE TABLE Wetterdaten (
 );
 \end{verbatim}
 
-\subsection{Umsetzung des Schemas in SQL (DDL) und Import der zugeordneten Daten als CSV. }
+\subsection{Umsetzung des Schemas in SQL (DDL) und Import der zugeordneten Daten als CSV}
 
 Nachdem wir die Tabellen erstellt haben mussten wir nur noch die Werte, die für unsere Gruppe bestimmt waren, aus dem Datensatz in die Tabellen einfügen. Dafür war folgender SQL Code notwendig:
 
@@ -127,7 +150,6 @@ Nachdem wir die Tabellen erstellt haben mussten wir nur noch die Werte, die für
 -- Prüfen auf doppelte Werte
 SELECT date, COUNT(*)
 FROM bike_sharing_data_with_NAs5
-
 GROUP BY date
 HAVING COUNT(*) > 1;
 
@@ -146,7 +168,6 @@ WHERE "group" = 18;
 
 Die Tabellen wurden somit mit den uns zugeteilten Werten befüllt und wurden somit in die 1. und 2. Normalform umgestellt.
 
-
 \newpage
 
 \section*{Literatur}
@@ -156,7 +177,6 @@ Die Tabellen wurden somit mit den uns zugeteilten Werten befüllt und wurden som
     \item[2] \emph{Statistical Inference} von George Casella und Roger L. Berger, 1990.
     \item[3] Online-Ressource: \href{https://www.khanacademy.org}{Khan Academy}
     \item[4] \href{https://sqliteonline.com}{SQLite Online}
-
 \end{itemize}
 
 \end{document}
