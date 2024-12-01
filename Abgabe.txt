@@ -43,7 +43,7 @@
 
 % Inhalt des Dokuments
 \title{Abgabe 1 für Computergestützte Methoden}
-\author{Gruppe (18), Safwan Malik: 4345627, Caner Cifti: 4325684}
+\author{Gruppe (18), (Safwan, Caner) }
 \date{01.12.2024}
 
 \maketitle
